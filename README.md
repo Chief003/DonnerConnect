@@ -1,9 +1,9 @@
 # DonorConnect
 
-![Build Status](https://img.shields.io/github/actions/workflow/status/your-username/auth-system/main.yml?branch=main)
-![License](https://img.shields.io/github/license/your-username/auth-system)
-![Version](https://img.shields.io/github/package-json/v/your-username/auth-system)
-![Issues](https://img.shields.io/github/issues/your-username/auth-system)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Build Status](https://img.shields.io/github/workflow/status/<your-github-username>/<your-repo-name>/CI)](https://github.com/<your-github-username>/<your-repo-name>/actions)
+[![Dependencies](https://img.shields.io/david/<your-github-username>/<your-repo-name>.svg)](https://david-dm.org/<your-github-username>/<your-repo-name>)
+
 
 ## Overview
 This project implements an authentication system using Firebase, React, and Bootstrap, including features such as login, signup, and password recovery.
