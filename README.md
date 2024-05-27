@@ -5,8 +5,16 @@
 
 
 ## Overview
-This project implements an authentication system using Firebase, React, and Bootstrap, including features such as login, signup, and password recovery.
+This project aims to develop a user-friendly web-based platform designed to bridge the gap between needy schools and potential donors. The platform will allow schools to list their specific needs and enable donors to browse and contribute to targeted projects, including both monetary and non-monetary donations. With a focus on transparency and accountability, the platform will include features that allow donors to track how their contributions are utilized by recipient schools, fostering trust and effective communication.
+## Table of Contents
 
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Installation](#installation)
+- [Firebase Setup](#firebase-setup)
+- [Usage](#usage)
+- [License](#license)
+- 
 ## Features
 - **User Registration**: New users can sign up.
 - **User Login**: Existing users can log in.
@@ -56,14 +64,6 @@ This project implements an authentication system using Firebase, React, and Boot
 3. **Register a New User**: Fill in the signup form and submit.
 4. **Login**: Use the credentials from the signup to log in.
 5. **Password Recovery**: Click on "Forgot Password" and follow the instructions to reset your password.
-
-## Contributing
-Contributions are welcome! Please follow these steps:
-1. Fork the repository.
-2. Create a new branch (`git checkout -b feature-branch`).
-3. Commit your changes (`git commit -m 'Add some feature'`).
-4. Push to the branch (`git push origin feature-branch`).
-5. Open a pull request.
 
 ## License
 This project is licensed under the MIT License.
