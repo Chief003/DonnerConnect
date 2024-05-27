@@ -2,7 +2,6 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Build Status](https://img.shields.io/github/workflow/status/<your-github-username>/<your-repo-name>/CI)](https://github.com/<your-github-username>/<your-repo-name>/actions)
-[![Dependencies](https://img.shields.io/david/<your-github-username>/<your-repo-name>.svg)](https://david-dm.org/<your-github-username>/<your-repo-name>)
 
 
 ## Overview
