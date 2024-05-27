@@ -14,18 +14,20 @@ This project aims to develop a user-friendly web-based platform designed to brid
 - [Firebase Setup](#firebase-setup)
 - [Usage](#usage)
 - [License](#license)
-- 
+  
 ## Features
 - **User Registration**: New users can sign up.
 - **User Login**: Existing users can log in.
 - **Password Recovery**: Users can reset their passwords if they forget them.
 
 ## Technologies Used
-- **React**: Frontend framework.
-- **Bootstrap**: Styling and responsive design.
-- **Firebase**: Backend services for authentication.
-- **HTML/CSS**: Frontend structure and styling.
-- **JavaScript**: Client-side logic.
+- **[React](https://reactjs.org/)**: A JavaScript library for building user interfaces.
+- **[Firebase](https://firebase.google.com/)**: A platform developed by Google for creating mobile and web applications.
+- **[React Router](https://reactrouter.com/)**: A collection of navigational components that compose declaratively with your application.
+- **[Bootstrap](https://getbootstrap.com/)**: A front-end framework for developing responsive and mobile-first websites.
+- **[React-Bootstrap](https://react-bootstrap.github.io/)**: The most popular front-end framework rebuilt for React.
+- **[Axios](https://axios-http.com/)**: A promise-based HTTP client for the browser and Node.js.
+- **[dotenv](https://www.npmjs.com/package/dotenv)**: A zero-dependency module that loads environment variables from a `.env` file into `process.env`.
 
 ## Installation
 1. **Clone the repository**:
@@ -38,9 +40,17 @@ This project aims to develop a user-friendly web-based platform designed to brid
     ```
 3. **Install dependencies**:
     ```sh
-    npm install
+    npm install firebase
     ```
-
+    ```sh
+    npm install bootstrap
+    ```
+    ```sh
+    npm install react-bootstrap bootstrap
+    ```
+    ```sh
+    npm install react-scripts
+    ```
 ## Firebase Setup
 1. **Create a Firebase Project**:
     - Go to the [Firebase Console](https://console.firebase.google.com/).
