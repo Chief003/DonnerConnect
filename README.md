@@ -30,37 +30,6 @@ This project aims to develop a user-friendly web-based platform designed to brid
 - **[dotenv](https://www.npmjs.com/package/dotenv)**: A zero-dependency module that loads environment variables from a `.env` file into `process.env`.
 
 
-## Project Structure
-
-```plaintext
-.
-├── User-Auth
-├── donorconnect-backend
-├── node_modules
-├── public
-│   ├── favicon.ico
-│   ├── index.html
-│   ├── logo192.png
-│   ├── logo512.png
-│   ├── manifest.json
-│   ├── robots.txt
-├── src
-│   ├── components
-│   ├── context
-│   ├── App.css
-│   ├── App.js
-│   ├── App.test.js
-│   ├── firebase.js
-│   ├── index.css
-│   ├── index.js
-│   ├── logo.svg
-│   ├── reportWebVitals.js
-│   ├── setupTests.js
-├── README.md
-├── package-lock.json
-├── package.json
-├── LICENSE.md
-
 
 ## Installation
 1. **Clone the repository**:
@@ -110,3 +79,36 @@ This project aims to develop a user-friendly web-based platform designed to brid
 
 ## License
 This project is licensed under the MIT License.
+
+
+## Project Structure
+
+```plaintext
+.
+├── User-Auth
+├── donorconnect-backend
+├── node_modules
+├── public
+│   ├── favicon.ico
+│   ├── index.html
+│   ├── logo192.png
+│   ├── logo512.png
+│   ├── manifest.json
+│   ├── robots.txt
+├── src
+│   ├── components
+│   ├── context
+│   ├── App.css
+│   ├── App.js
+│   ├── App.test.js
+│   ├── firebase.js
+│   ├── index.css
+│   ├── index.js
+│   ├── logo.svg
+│   ├── reportWebVitals.js
+│   ├── setupTests.js
+├── README.md
+├── package-lock.json
+├── package.json
+├── LICENSE.md
+
