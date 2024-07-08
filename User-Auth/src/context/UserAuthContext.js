@@ -7,28 +7,32 @@ import {
   GoogleAuthProvider,
   signInWithPopup,
   sendEmailVerification,
-  reload,
-  updateEmail
+  reload
 } from "firebase/auth";
-import axios from 'axios';
-import { ref, set } from "firebase/database";
+import { ref, set, get } from "firebase/database"; // import 'get'
 import { auth, database } from "../firebase";
 
 const userAuthContext = createContext();
 
 export function UserAuthContextProvider({ children }) {
   const [user, setUser] = useState(null);
-  const [loading, setLoading] = useState(true); // Add a loading state
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
       if (currentUser) {
         await reload(currentUser);
-        setUser(currentUser);
+        let role = "user";
+        if (currentUser.email === "elvis.oteng'o@strathmore.edu") {
+          role = "admin";
+        } else if (currentUser.email === "") {
+          role = "sadmin";
+        }
+        setUser({ ...currentUser, role });
       } else {
         setUser(null);
       }
-      setLoading(false); // Update loading state
+      setLoading(false);
     });
 
     return () => unsubscribe();
@@ -37,8 +41,14 @@ export function UserAuthContextProvider({ children }) {
   const logIn = async (email, password) => {
     const { user } = await signInWithEmailAndPassword(auth, email, password);
     await reload(user);
-    setUser(user); // Update user state
-    return user;
+    let role = "user";
+    if (user.email === "elvis.oteng'o@strathmore.edu") {
+      role = "admin";
+    } else if (user.email === "") {
+      role = "sadmin";
+    }
+    setUser({ ...user, role });
+    return { ...user, role };
   };
 
   const signUp = async (email, password) => {
@@ -49,19 +59,32 @@ export function UserAuthContextProvider({ children }) {
       uid: user.uid,
       emailVerified: user.emailVerified,
     });
-    return user;
+    let role = "user";
+    if (user.email === "elvis.oteng'o@strathmore.edu") {
+      role = "admin";
+    } else if (user.email === "") {
+      role = "sadmin";
+    }
+    setUser({ ...user, role });
+    return { ...user, role };
   };
 
   const logOut = async () => {
     await signOut(auth);
-    setUser(null); // Clear user state on logout
+    setUser(null);
   };
 
   const googleSignIn = async () => {
     const { user } = await signInWithPopup(auth, new GoogleAuthProvider());
     await reload(user);
-    setUser(user); // Update user state
-    return user;
+    let role = "user";
+    if (user.email === "elvis.oteng'o@strathmore.edu") {
+      role = "admin";
+    } else if (user.email === "") {
+      role = "sadmin";
+    }
+    setUser({ ...user, role });
+    return { ...user, role };
   };
 
   return (
@@ -74,3 +97,4 @@ export function UserAuthContextProvider({ children }) {
 export const useUserAuth = () => {
   return useContext(userAuthContext);
 };
+
