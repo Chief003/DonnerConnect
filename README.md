@@ -81,12 +81,108 @@ This project aims to develop a user-friendly web-based platform designed to brid
 This project is licensed under the MIT License.
 
 
+
 ## Project Structure
 
 ```plaintext
 .
 ├── User-Auth
 ├── donorconnect-backend
+├── node_modules
+│   ├── .bin
+│   ├── accepts
+│   ├── array-flatten
+│   ├── bcryptjs
+│   ├── bignumber.js
+│   ├── body-parser
+│   ├── buffer-equal-constant-time
+│   ├── bytes
+│   ├── call-bind
+│   ├── content-disposition
+│   ├── content-type
+│   ├── cookie-signature
+│   ├── cookie
+│   ├── core-util-is
+│   ├── cors
+│   ├── debug
+│   ├── define-data-property
+│   ├── depd
+│   ├── destroy
+│   ├── ecdsa-sig-formatter
+│   ├── ee-first
+│   ├── encodeurl
+│   ├── es-define-property
+│   ├── es-errors
+│   ├── escape-html
+│   ├── etag
+│   ├── express
+│   ├── finalhandler
+│   ├── forwarded
+│   ├── fresh
+│   ├── function-bind
+│   ├── get-intrinsic
+│   ├── gopd
+│   ├── has-property-descriptors
+│   ├── has-proto
+│   ├── has-symbols
+│   ├── hasown
+│   ├── http-errors
+│   ├── iconv-lite
+│   ├── inherits
+│   ├── ipaddr.js
+│   ├── isarray
+│   ├── jsonwebtoken
+│   ├── jwa
+│   ├── jws
+│   ├── lodash.includes
+│   ├── lodash.isboolean
+│   ├── lodash.isinteger
+│   ├── lodash.isnumber
+│   ├── lodash.isplainobject
+│   ├── lodash.isstring
+│   ├── lodash.once
+│   ├── media-typer
+│   ├── merge-descriptors
+│   ├── methods
+│   ├── mime-db
+│   ├── mime-types
+│   ├── mime
+│   ├── ms
+│   ├── mysql
+│   ├── negotiator
+│   ├── object-assign
+│   ├── object-inspect
+│   ├── on-finished
+│   ├── parseurl
+│   ├── path-to-regexp
+│   ├── process-nextick-args
+│   ├── proxy-addr
+│   ├── qs
+│   ├── range-parser
+│   ├── raw-body
+│   ├── readable-stream
+│   ├── safe-buffer
+│   ├── safer-buffer
+│   ├── semver
+│   ├── send
+│   ├── serve-static
+│   ├── set-function-length
+│   ├── setprototypeof
+│   ├── side-channel
+│   ├── sqlstring
+│   ├── statuses
+│   ├── string_decoder
+│   ├── toidentifier
+│   ├── type-is
+│   ├── unpipe
+│   ├── util-deprecate
+│   ├── utils-merge
+│   ├── vary
+├── package-lock.json
+├── routes
+├── package-lock.json
+├── package.json
+├── server.js
 ├── node_modules
 ├── public
 │   ├── favicon.ico
@@ -97,7 +193,31 @@ This project is licensed under the MIT License.
 │   ├── robots.txt
 ├── src
 │   ├── components
+│   │   ├── AboutUs.js
+│   │   ├── Account.js
+│   │   ├── AccountDetailsForm.js
+│   │   ├── AccountInfo.js
+│   │   ├── BlogSection.js
+│   │   ├── Footer.js
+│   │   ├── ForgotPassword.js
+│   │   ├── Header.js
+│   │   ├── HeroSection.js
+│   │   ├── Home.js
+│   │   ├── LockScreen.js
+│   │   ├── Login.js
+│   │   ├── Mpesa.js
+│   │   ├── PaymentService.js
+│   │   ├── ProfileDetails.js
+│   │   ├── ProfileHeader.js
+│   │   ├── ProtectedRoute.js
+│   │   ├── Signup.js
+│   │   ├── Testimonials.js
+│   │   ├── VerifyEmail.js
+│   │   ├── innerResetPassword.js
+│   │   ├── test.js
+│   │   ├── userNotification.js
 │   ├── context
+│   │   ├── UserAuthContext.js
 │   ├── App.css
 │   ├── App.js
 │   ├── App.test.js
