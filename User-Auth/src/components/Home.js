@@ -3,8 +3,12 @@ import { Button } from "react-bootstrap";
 import { useNavigate } from "react-router";
 import { useUserAuth } from "../context/UserAuthContext";
 import LockScreen from "./LockScreen";
-
-
+import Header from "./Header";
+import HeroSection from "./HeroSection";
+import BlogSection from "./BlogSection";
+import Footer from "./Footer";
+import Testimonial from "./Testimonials";
+import AboutUs from "./AboutUs";
 const Home = () => {
   const { logOut, user } = useUserAuth();
   const navigate = useNavigate();
@@ -23,7 +27,7 @@ const Home = () => {
     let timer;
     const handleActivity = () => {
       clearTimeout(timer);
-      timer = setTimeout(() => setIsLocked(true), 60000); // 1 minute = 60000 ms
+      timer = setTimeout(() => setIsLocked(true), 400000); // 1 minute = 60000 ms
     };
 
     window.addEventListener("mousemove", handleActivity);
@@ -48,15 +52,12 @@ const Home = () => {
 
   return (
     <>
-      <div className="p-4 box mt-3 text-center">
-        Welcome <br />
-        {user && user.email}
-      </div>
-      <div className="d-grid gap-2">
-        <Button variant="primary" onClick={handleLogout}>
-          Log out
-        </Button>
-      </div>
+      <Header />
+      <HeroSection />
+      <BlogSection />
+      <AboutUs />
+      <Testimonial />
+      <Footer />
     </>
   );
 };
