@@ -1,23 +1,28 @@
 import React from "react";
 import { Navigate } from "react-router-dom";
 import { useUserAuth } from "../context/UserAuthContext";
+import { Spin } from "antd";
 
 const ProtectedRoute = ({ children }) => {
-  const { user } = useUserAuth();
+  const { user, loading } = useUserAuth();
 
-  console.log("Check user in Private: ", user);
+  if (loading) {
+    // Ant Design loading spinner
+    return (
+      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+        <Spin size="large" />
+      </div>
+    );
+  }
 
   if (!user) {
-    // Redirect the user to the login page if they are not authenticated
     return <Navigate to="/" />;
   }
 
   if (!user.emailVerified) {
-    // Redirect to a page that instructs the user to verify their email
     return <Navigate to="/verify-email" />;
   }
 
-  // Render the children (protected content) if the user is authenticated and email is verified
   return children;
 };
 
