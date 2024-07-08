@@ -1,22 +1,23 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import{getAuth} from "firebase/auth";
+import { getAuth } from "firebase/auth";
 import { getDatabase } from "firebase/database";
+import { getFirestore } from "firebase/firestore"; // Import Firestore
 
 const firebaseConfig = {
-  apiKey: "AIzaSyD1ifOi-88N7qohX9G15eU-svE7xTRE-24",
-  authDomain: "donorconnect-297b4.firebaseapp.com",
-  databaseURL: "https://donorconnect-297b4-default-rtdb.firebaseio.com/",
-  projectId: "donorconnect-297b4",
-  storageBucket: "donorconnect-297b4.appspot.com",
-  messagingSenderId: "589425183592",
-  appId: "1:589425183592:web:99d460434c1d2a32e0e4dd",
-  measurementId: "G-WMTN0YHXPZ"
+  apiKey: "AIzaSyDrKe9c97zu7xziiWM9R0N8cMuvktqmLcM",
+  authDomain: "donorconnect-4ce2b.firebaseapp.com",
+  projectId: "donorconnect-4ce2b",
+  storageBucket: "donorconnect-4ce2b.appspot.com",
+  messagingSenderId: "899862853576",
+  appId: "1:899862853576:web:1fc3fc7f169f398fce72fd",
+  measurementId: "G-RWTBNTCGWB"
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const database = getDatabase(app);
+const firestore = getFirestore(app); // Initialize Firestore
 
-export { auth, database };
+export { auth, database, firestore };
