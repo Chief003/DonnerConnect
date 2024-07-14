@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
 import { useUserAuth } from '../context/UserAuthContext'; // Adjust the import path as needed
 import { firestore } from '../firebase'; // Adjust the import path as needed
-import { doc, updateDoc, increment } from 'firebase/firestore';
-
+import { doc, updateDoc, increment, addDoc, collection, getDoc } from 'firebase/firestore';
+import { message } from 'antd'; // Import message from Ant Design
+import { Link } from 'react-router-dom';
+import { Button } from 'antd';
 const Mpesa = () => {
   const { user } = useUserAuth(); // Access user information from UserAuthContextProvider
   const [phone, setPhone] = useState('');
   const [accountNumber, setAccountNumber] = useState('');
   const [amount, setAmount] = useState('');
-  const [message, setMessage] = useState('');
+  const [messageText, setMessageText] = useState('');
 
   const handlePhoneChange = (e) => {
     setPhone(e.target.value);
@@ -22,65 +24,92 @@ const Mpesa = () => {
     setAmount(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    fetch("http://localhost:5000/api/stkpush", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ phone: phone, accountNumber: accountNumber, amount: amount }),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        setMessage('Request sent. Waiting for payment initiation...');
-        
-        // Simulate waiting for payment confirmation
-        setTimeout(() => {
-          setMessage('Payment successfully initiated!');
+    try {
+      const response = await fetch("http://localhost:5000/api/stkpush", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ phone, accountNumber, amount }),
+      });
+      const data = await response.json();
+      console.log(data);
+      setMessageText('Request sent. Waiting for payment initiation...');
 
-          // Update Firestore with donation amount for the school
-          if (user) {
-            const userDocRef = doc(firestore, 'users', user.uid);
-            const schoolDocRef = doc(firestore, 'School', accountNumber);
-            const donationAmount = parseFloat(amount);
+      // Simulate waiting for payment confirmation
+      setTimeout(async () => {
+        setMessageText('Payment successfully initiated!');
+
+        // Update Firestore with donation amount for the school
+        if (user) {
+          const userDocRef = doc(firestore, 'users', user.uid);
+          const schoolDocRef = doc(firestore, 'School', accountNumber);
+          const donationAmount = parseFloat(amount);
+
+          try {
+            // Fetch the user's name from Firestore
+            const userDoc = await getDoc(userDocRef);
+            let userName = user.displayName || '';
+            if (userDoc.exists()) {
+              const userData = userDoc.data();
+              userName = `${userData.firstName || ''} ${userData.lastName || ''}`.trim();
+            }
 
             // Update user's donations
-            updateDoc(userDocRef, {
+            await updateDoc(userDocRef, {
               donations: increment(donationAmount)
-            }).then(() => {
-              console.log('User donation updated successfully!');
-            }).catch((error) => {
-              console.error('Error updating user donation:', error);
             });
+            console.log('User donation updated successfully!');
 
-            // Update school's donated amount
-            updateDoc(schoolDocRef, {
+            // Ensure the `donated` field is correctly updated in the school's document
+            await updateDoc(schoolDocRef, {
               donated: increment(donationAmount)
-            }).then(() => {
-              console.log('School donation updated successfully for', accountNumber);
-            }).catch((error) => {
-              console.error('Error updating school donation:', error);
             });
-          } else {
-            console.error('User not authenticated.');
-          }
+            console.log('School donation updated successfully for', accountNumber);
 
-        }, 9000); // 9 seconds delay
-      })
-      .catch((error) => {
-        console.error(error);
-        setMessage('Payment failed!');
-      });
+            // Log the transaction
+            const transactionData = {
+              userId: user.uid,
+              name: userName,
+              email: user.email,
+              amount: donationAmount,
+              date: new Date(),
+              schoolId: accountNumber,
+            };
+
+            const transactionsCollectionRef = collection(firestore, 'transactions');
+            await addDoc(transactionsCollectionRef, transactionData);
+            console.log('Transaction logged successfully!');
+
+            // Show success message
+            message.success('Thank you for your donation!');
+          } catch (error) {
+            console.error('Error updating Firestore:', error);
+            setMessageText('Failed to update donation.');
+          }
+        } else {
+          console.error('User not authenticated.');
+          setMessageText('User not authenticated.');
+        }
+
+      }, 9000); // 9 seconds delay
+    } catch (error) {
+      console.error(error);
+      setMessageText('Payment failed!');
+    }
   };
 
   return (
     <div style={styles.container}>
       <div style={styles.formContainer}>
+      <Link to='/home' style={{ marginLeft: '315px' }}>
+                <Button type="primary">Go to Home</Button>
+              </Link>
         <form onSubmit={handleSubmit} style={styles.form}>
-          <h1>Mpesa Payment Form</h1>
-          {message && <p style={{ color: message.includes('failed') ? 'red' : 'green' }}>{message}</p>}
+          <h1>Mpesa Payments</h1>
+          {messageText && <p style={{ color: messageText.includes('failed') ? 'red' : 'green' }}>{messageText}</p>}
           <div style={styles.formGroup}>
             <label htmlFor="phone" style={styles.label}>Phone Number</label>
             <input
@@ -129,15 +158,20 @@ const Mpesa = () => {
 
 const styles = {
   container: {
+    backgroundImage: `url('/images/bg-5.jpg')`, // Replace with your image path
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      minHeight: '100vh',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
     height: '100vh',
   },
   formContainer: {
-    maxWidth: '400px',
+    maxWidth: '500px',
     flex: '1',
     padding: '20px',
+    marginLeft:'300px',
   },
   cardContainer: {
     flex: '1',

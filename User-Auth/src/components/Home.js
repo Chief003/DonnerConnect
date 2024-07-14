@@ -9,6 +9,7 @@ import BlogSection from "./BlogSection";
 import Footer from "./Footer";
 import Testimonial from "./Testimonials";
 import AboutUs from "./AboutUs";
+import RateUs from "./RateUs";
 const Home = () => {
   const { logOut, user } = useUserAuth();
   const navigate = useNavigate();
@@ -57,6 +58,7 @@ const Home = () => {
       <BlogSection />
       <AboutUs />
       <Testimonial />
+      <RateUs />
       <Footer />
     </>
   );

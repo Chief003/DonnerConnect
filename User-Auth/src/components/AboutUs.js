@@ -4,22 +4,22 @@ const features = [
     {
         icon: "images/truck.svg",
         title: "Fast & Free to Donate",
-        description: "Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate."
+        description: "Donating is swift and free on our platform. We prioritize efficiency, ensuring your contributions reach impoverished schools promptly. It's a seamless process that empowers you to make a difference without delay."
     },
     {
         icon: "images/bag.svg",
         title: "Easy to Donate",
-        description: "Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate."
+        description: "Donating couldn't be simpler. Our platform offers an intuitive interface that makes contributing to impoverished schools effortless. With just a few clicks, you can support education initiatives and make a meaningful impact."
     },
     {
         icon: "images/support.svg",
         title: "24/7 Support",
-        description: "Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate."
+        description: "We're here for you round the clock. Our dedicated support team ensures that your donation experience is smooth and problem-free. Whether you have questions or need assistance, we're committed to providing timely help."
     },
     {
         icon: "images/return.svg",
         title: "Hassle Free Returns",
-        description: "Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate."
+        description: "Ensuring your satisfaction is our priority. Our platform guarantees a hassle-free experience, ensuring that every donation you make is handled with care and transparency. If you ever need assistance, our team is ready to assist you promptly."
     }
 ];
 
@@ -29,12 +29,13 @@ const AboutUs = () => {
     };
 
     return (
+        <>
         <div style={{ padding: '7rem 0' }}>
             <div className="container">
                 <div className="row justify-content-between align-items-center">
                     <div className="col-lg-6">
                         <h2 style={{ fontSize: '2rem', marginBottom: '2rem', ...headerStyle }}>Why Choose Us</h2>
-                        <p>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique.</p>
+                        <p>We offer a comprehensive and detailed info about how your donations are used.</p>
 
                         <div className="row my-5">
                             {features.map((feature, index) => (
@@ -70,6 +71,7 @@ const AboutUs = () => {
                 </div>
             </div>
         </div>
+        </>
     );
 };
 
