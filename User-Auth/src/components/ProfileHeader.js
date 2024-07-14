@@ -52,7 +52,6 @@ const ProfileHeader = () => {
   }
 
   const handleResetPassword = () => {
-    // Navigate to the reset password page or trigger the reset password process
     navigate('/reset-password');
   };
 
@@ -65,8 +64,8 @@ const ProfileHeader = () => {
     }
   };
 
-  const handleNavigateToPaymentDetails = () => {
-    navigate('/payment-details'); // Navigate to the payment details page
+  const handleNavigateToTransactions = () => {
+    navigate('/user-transactions'); // Navigate to the user transactions page
   };
 
   const menuItems = [
@@ -82,8 +81,8 @@ const ProfileHeader = () => {
     },
     {
       key: '3',
-      label: 'Payment Details',
-      onClick: handleNavigateToPaymentDetails // Link to handle navigation to payment details
+      label: 'View History',
+      onClick: handleNavigateToTransactions
     },
     {
       key: '4',

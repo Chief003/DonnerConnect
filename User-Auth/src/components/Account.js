@@ -37,7 +37,13 @@ export default function Account() {
   };
 
   return (
-    <Stack spacing={3}>
+    <Stack spacing={3} className="bg-image" style={{
+      backgroundImage: `url('/images/bg-5.jpg')`, // Replace with your image path
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      minHeight: '100vh', // Ensures background covers entire viewport height
+      paddingTop: '' // Adjust padding as needed
+    }}>
       <ProfileHeader /> {/* Include ProfileHeader component here */}
       <Grid container spacing={3}>
         <Grid item lg={4} md={6} xs={12}>

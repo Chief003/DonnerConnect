@@ -16,8 +16,15 @@ const Login = () => {
     e.preventDefault();
     setError("");
     try {
-      await logIn(email, password);
-      navigate("/home");
+      const user = await logIn(email, password);
+      console.log("User Role after Login:", user.role);
+      if (user.role === "admin") {
+        navigate("/admin");
+      } else if (user.role === "sadmin") {
+        navigate("/Sadmin");
+      } else {
+        navigate("/home");
+      }
     } catch (err) {
       setError(err.message);
     }
@@ -26,22 +33,26 @@ const Login = () => {
   const handleGoogleSignIn = async (e) => {
     e.preventDefault();
     try {
-      await googleSignIn();
-      navigate("/home");
+      const user = await googleSignIn();
+      console.log("User Role after Google SignIn:", user.role);
+      if (user.role === "admin") {
+        navigate("/admin");
+      } else if (user.role === "sadmin") {
+        navigate("/Sadmin");
+      } else {
+        navigate("/home");
+      }
     } catch (error) {
       console.log(error.message);
     }
   };
 
   return (
-    <>
+    <div>
       <div className="p-4 box">
         <h2 className="mb-3">Login</h2>
-
         {error && <Alert variant="danger">{error}</Alert>}
-
         <Form onSubmit={handleSubmit}>
-          
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Control
               type="email"
@@ -49,7 +60,6 @@ const Login = () => {
               onChange={(e) => setEmail(e.target.value)}
             />
           </Form.Group>
-
           <Form.Group className="mb-3" controlId="formBasicPassword">
             <Form.Control
               type="password"
@@ -57,29 +67,24 @@ const Login = () => {
               onChange={(e) => setPassword(e.target.value)}
             />
           </Form.Group>
-
           <div className="d-grid gap-2">
-            <Button variant="primary" type="Submit">
+            <Button variant="primary" type="submit">
               Log In
             </Button>
           </div>
         </Form>
         <hr />
         <div>
-          <GoogleButton
-            className="g-btn"
-            type="dark"
-            onClick={handleGoogleSignIn}
-          />
+          <GoogleButton className="g-btn" type="dark" onClick={handleGoogleSignIn} />
         </div>
         <div className="w-100 text-center mt-3">
-          <Link to='/forgot-password'>forgot Password?</Link>
+          <Link to='/forgot-password'>Forgot Password?</Link>
         </div>
       </div>
       <div className="p-4 box mt-3 text-center">
         Don't have an account? <Link to="/signup">Sign up</Link>
       </div>
-    </>
+    </div>
   );
 };
 
