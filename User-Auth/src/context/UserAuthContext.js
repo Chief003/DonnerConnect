@@ -23,7 +23,7 @@ export function UserAuthContextProvider({ children }) {
       if (currentUser) {
         await reload(currentUser);
         let role = "user";
-        if (currentUser.email === "elvis.oteng'o@strathmore.edu") {
+        if (currentUser.email === "your-email") {
           role = "admin";
         } else if (currentUser.email === "") {
           role = "sadmin";
@@ -42,7 +42,7 @@ export function UserAuthContextProvider({ children }) {
     const { user } = await signInWithEmailAndPassword(auth, email, password);
     await reload(user);
     let role = "user";
-    if (user.email === "elvis.oteng'o@strathmore.edu") {
+    if (user.email === "your-email") {
       role = "admin";
     } else if (user.email === "") {
       role = "sadmin";
@@ -60,7 +60,7 @@ export function UserAuthContextProvider({ children }) {
       emailVerified: user.emailVerified,
     });
     let role = "user";
-    if (user.email === "elvis.oteng'o@strathmore.edu") {
+    if (user.email === "your-email") {
       role = "admin";
     } else if (user.email === "") {
       role = "sadmin";
@@ -78,7 +78,7 @@ export function UserAuthContextProvider({ children }) {
     const { user } = await signInWithPopup(auth, new GoogleAuthProvider());
     await reload(user);
     let role = "user";
-    if (user.email === "elvis.oteng'o@strathmore.edu") {
+    if (user.email === "your-email") {
       role = "admin";
     } else if (user.email === "") {
       role = "sadmin";
@@ -140,9 +140,9 @@ export function UserAuthContextProvider({ children }) {
       if (currentUser) {
         await reload(currentUser);
         let role = "user";
-        if (currentUser.email === "elvis.oteng'o@strathmore.edu") {
+        if (currentUser.email === "your-email") {
           role = "admin";
-        } else if (currentUser.email === "mainarewel10645@gmail.com") {
+        } else if (currentUser.email === "your-email") {
           role = "admin";
         }
 
@@ -161,9 +161,9 @@ export function UserAuthContextProvider({ children }) {
     const { user } = await signInWithEmailAndPassword(auth, email, password);
     await reload(user);
     let role = "user";
-    if (user.email === "elvis.oteng'o@strathmore.edu") {
+    if (user.email === "your-email") {
       role = "admin";
-    } else if (user.email === "mainarewel10645@gmail.com") {
+    } else if (user.email === "your-email") {
       role = "admin";
     }
 
@@ -196,9 +196,9 @@ export function UserAuthContextProvider({ children }) {
     const { user } = await signInWithPopup(auth, new GoogleAuthProvider());
     await reload(user);
     let role = "user";
-    if (user.email === "elvis.oteng'o@strathmore.edu") {
+    if (user.email === "your-email") {
       role = "admin";
-    } else if (user.email === "mainarewel10645@gmail.com") {
+    } else if (user.email === "your-email") {
       role = "admin";
     }
 
