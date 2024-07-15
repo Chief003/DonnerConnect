@@ -223,7 +223,7 @@ const SchoolPage = () => {
           </div>
         </div>
         <div className="container" style={{marginLeft:'530px',marginTop:'-380px'}}>
-          <LoadScript googleMapsApiKey="AIzaSyDtMMV8UeGPBT4XgxYGxhVGRUIjTXM2sMY">
+          <LoadScript googleMapsApiKey="Your-Api-Key">
             <GoogleMap
               mapContainerStyle={mapContainerStyle}
               center={center}
