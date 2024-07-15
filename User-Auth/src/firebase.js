@@ -5,13 +5,13 @@ import { getDatabase } from "firebase/database";
 import { getFirestore } from "firebase/firestore"; // Import Firestore
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDrKe9c97zu7xziiWM9R0N8cMuvktqmLcM",
-  authDomain: "donorconnect-4ce2b.firebaseapp.com",
-  projectId: "donorconnect-4ce2b",
-  storageBucket: "donorconnect-4ce2b.appspot.com",
-  messagingSenderId: "899862853576",
-  appId: "1:899862853576:web:1fc3fc7f169f398fce72fd",
-  measurementId: "G-RWTBNTCGWB"
+  apiKey: "your-own",
+  authDomain: "your-own",
+  projectId: "your-own",
+  storageBucket: "your-own",
+  messagingSenderId: "your-own",
+  appId: "your-own",
+  measurementId: "your-own"
 };
 
 // Initialize Firebase
