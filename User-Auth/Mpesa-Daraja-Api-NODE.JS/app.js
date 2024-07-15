@@ -20,8 +20,8 @@ const server = http.createServer(app);
 
 // ACCESS TOKEN FUNCTION - Updated to use 'axios'
 async function getAccessToken() {
-  const consumer_key = "QDMQfQhxZDQCS7g670AGwhAfJa14o0bGPbU4eM41VDXEf5Ih"; // REPLACE IT WITH YOUR CONSUMER KEY
-  const consumer_secret = "NhgAQOPXUkCj5DA2jWpy7M57Ns7AcAotqTBEpsPBqr12h6Rj87nfPpoiKk56l02V"; // REPLACE IT WITH YOUR CONSUMER SECRET
+  const consumer_key = "Your-Consumer-Key"; // REPLACE IT WITH YOUR CONSUMER KEY
+  const consumer_secret = "Your-Secret-Key"; // REPLACE IT WITH YOUR CONSUMER SECRET
   const url =
     "https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials";
   const auth =
@@ -83,9 +83,9 @@ app.get("/stkpush", (req, res) => {
             Timestamp: timestamp,
             TransactionType: "CustomerPayBillOnline",
             Amount: "1",
-            PartyA: "254716903198", //phone number to receive the stk push
+            PartyA: "254712345678", //phone number to receive the stk push
             PartyB: "174379",
-            PhoneNumber: "254716903198",
+            PhoneNumber: "254712345678",
             CallBackURL: "https://d4f6-41-90-184-244.ngrok-free.app/api/callback",
             AccountReference: "Donor Connect",
             TransactionDesc: "Mpesa Daraja API stk push test",
