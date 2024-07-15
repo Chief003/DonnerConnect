@@ -18,8 +18,8 @@ router.get("/api/access_token", (req, res) => {
 });
 
 async function getAccessToken() {
-  const consumer_key = "QDMQfQhxZDQCS7g670AGwhAfJa14o0bGPbU4eM41VDXEf5Ih";
-  const consumer_secret = "NhgAQOPXUkCj5DA2jWpy7M57Ns7AcAotqTBEpsPBqr12h6Rj87nfPpoiKk56l02V";
+  const consumer_key = "Your-Consumer-Key";
+  const consumer_secret = "Your-Secret-Key";
   const url = "https://api.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials";
   const auth = "Basic " + new Buffer.from(consumer_key + ":" + consumer_secret).toString("base64");
 
